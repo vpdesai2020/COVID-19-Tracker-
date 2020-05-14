@@ -7,4 +7,6 @@ In this project I have used **covid19india.org** open source API
 
 ---
 
+![Layout](https://github.com/vpdesai2020/COVID-19-Tracker-/blob/master/Covid19%20Tracker/img/dashboard.png)
+
 
