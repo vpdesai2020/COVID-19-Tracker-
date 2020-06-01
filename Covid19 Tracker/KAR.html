@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Karnataka</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Dosis:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body style="font-family: 'Dosis', sans-serif;">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #827397;">
+        <div class="container">
+            
+          <a class="navbar-brand" href="statewise.php">COVID19 Tracker</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link px-3" href="statewise.php">States <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-3" href="KAR.html">Districts</a>
+              </li>
+              
+              
+            </ul>
+            
+          </div>
+        </div> 
+      </nav>
+    <div class="container">
+        <div class="p-5"></div>
+        <div class=" pb-5 text-center"><h1 style="color:#827397" >Total Cases in KARNATAKA</h1></div>
+        <div class="row text-center">
+          <div class="col-3 text-warning" style="color:#cc7b7e" >
+            <h5 style="color:#cc7b7e">Confirmed</h5>
+            <p style="color:#cc7b7e" id="confirmed"></p>
+          </div>
+          <div class="col-3 text-info">
+            <h5>Active</h5>
+            <p id="active"></p>
+          </div>
+          <div class="col-3 text-success">
+            <h5>Recovered</h5>
+            <p id="recovered"></p>
+          </div>
+          <div class="col-3 text-danger">
+            <h5 style="color:#a5ae9e">Deceased</h5>
+            <p style="color:#a5ae9e" id="deaths"></p>
+          </div>
+        </div>
+        <div><h1 class="text-center p-5 py-5 pb-5">API Under construction</h1></div>
+
+        <script>
+            const api_url = ('https://api.covidindiatracker.com/state_data.json')
+            async function getdata(){
+                const response = await fetch(api_url);
+                const data = await response.json();
+                console.log(data[11]);
+                document.getElementById('confirmed').textContent=data[11].confirmed
+                document.getElementById('active').textContent=data[11].active
+                document.getElementById('recovered').textContent=data[11].recovered
+                document.getElementById('deaths').textContent=data[11].deaths
+            }
+            getdata();
+        </script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- <script src="kar.js"></script> -->
+  </body>
+  <footer class="footer ">
+    <div class="copy-right text-center py-3 border-top text-muted">
+      <p>Made by <a href="http://vasanthdesai.me/">Vasanth Desai</a>  &copy; 2020</p>
+      <p>Thanks <a href=""></a>covid19india.org</p>
+    </div>
+  </footer>
+</html>
